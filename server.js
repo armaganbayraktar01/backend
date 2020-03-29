@@ -10,8 +10,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 dotenv.config();
 
-
-const dbUrl = `mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}`;
+const dbUrl = process.env.DB_URI;
+//const dbUrl = `mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}`;
 const validate = data => {
   let errors = {};
   if (data.title === '') errors.title = "Can't be empty";
